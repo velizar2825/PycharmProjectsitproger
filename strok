@@ -1,0 +1,32 @@
+#S.islower()  Состоит ли строка из символов в нижнем регистре 
+s = 'summer is coming' 
+print(s.islower()) 
+s = 'Summer is coming' 
+print(s.islower()) 
+ 
+#S.isupper()  Состоит ли строка из символов в верхнем регистреS.isupper() 
+s = 'summer is coming' 
+print(s.isupper()) 
+s = 'Summer is coming' 
+print(s.isupper()) 
+ 
+#S.istitle() Начинаются ли слова в строке с заглавной буквы 
+txt = "Summer Is Coming" 
+s = txt.istitle() 
+print(s) 
+ 
+#s.upper() 
+s = 'summer is coming' 
+print(s.upper()) 
+ 
+#S.lower() 
+s = 'SUMMER IS COMING' 
+print(s.lower()) 
+ 
+#S.title() 
+s = 'summer is coming' 
+print(s.title()) 
+ 
+#S.capitalize() 
+s = 'Summer is COMING' 
+print(s.capitalize())
