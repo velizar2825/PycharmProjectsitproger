@@ -1,5 +1,15 @@
-n=int ("Введите значение n:   "))
-sum = 0
-for i in ran ge (1 ,n+1) :
-   sum += i
-print ("Сумма чисел от 1 до ",n, "равна" ,sum)
+operator=input("Введите операцию (+,-,*,/):")
+a= float(input("Введите первое число:"))
+b= float(unput("Введите второе число:"))
+print ("Чтобы завершить напишите слво стоп")
+if operator =="+":
+result = a+b 
+elif operator =="-:
+result = a+b 
+elif operator == "/":
+result = a/b 
+elif operator =="стоп"
+ exit()
+print (result)
+while True 
+operator = input ("Введите операцию(+,-,*,/):")
