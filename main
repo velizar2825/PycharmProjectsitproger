@@ -1,0 +1,37 @@
+def start(update, context):
+context.bot.send_message(chat_id=update.effective_chat.id, text="Привет! Я бот, который поможет тебе в чем угодно. Чем могу помочь?")
+
+def echo(update, context):
+context.bot.send_message(chat_id=update.effective_chat.id, text=update.message.text)
+
+def time(update, context):
+now = datetime.now()
+context.bot.send_message(chat_id=update.effective_chat.id, text=f"Текущее время: {now}")
+
+def weather(update, context):
+city = update.message.text.split()[1]
+url = f"http://api.openweathermap.org/data/2.5/weather?q={city}&appid=YOUR_API_KEY"
+response = requests.get(url)
+data = response.json()
+weather = data['weather'][0]['description']
+temp = data['main']['temp'] - 273.15
+context.bot.send_message(chat_id=update.effective_chat.id, text=f"Погода в городе {city}: {weather}, Температура: {temp:.2f}°C")
+
+def photo(update, context):
+context.bot.send_photo(chat_id=update.effective_chat.id, photo=open('image.jpg', 'rb'))
+
+def main():
+updater = Updater(token='YOUR_TOKEN', use_context=True)
+dp = updater.dispatcher
+
+dp.add_handler(CommandHandler('start', start))
+dp.add_handler(MessageHandler(Filters.text & (~Filters.command), echo))
+dp.add_handler(CommandHandler('time', time))
+dp.add_handler(CommandHandler('weather', weather, pass_args=True))
+dp.add_handler(CommandHandler('photo', photo))
+
+updater.start_polling()
+updater.idle()
+
+if name == 'main':
+main()
